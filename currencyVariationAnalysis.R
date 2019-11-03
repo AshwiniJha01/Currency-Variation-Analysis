@@ -53,3 +53,6 @@ colnames(sampleDf2) <- c('CHNYuanInUSD','GoldInUSD')
 modelSampleYuan <- lm(formula = CHNYuanInUSD ~ GoldInUSD, data = sampleDf2, model = TRUE)
 summary(modelSampleYuan)
 
+
+summary(modelSampleEuro)
+summary(modelSampleYuan)
