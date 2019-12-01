@@ -1,7 +1,7 @@
-# The idea I want to test is if all the currencies react to changes in USD in the same manner or some currencies react differently. How can we do this? If I use a currency's exhange rate with US, what do I compare it with?
+# The idea I want to test is if all the currencies react to changes in USD in the same manner or some currencies react differently. How can I do this? If I use a currency's exhange rate with US as the value of the currency, what do I use as the value of USD?
 # The idea I am going to test involves comparing changes in currency's exchange rate with how much gold can US dollar buy. The amount of gold that US dollar can buy will act as a proxy metric for benchmarking the value of USD and the exchange rate of all the currencies in USD will benchmark the value of these currencies
 # In the analysis, I am going to look at the correlation of the currencies with Gold value and also build a linear regression model. I believe if I build a linear regression model where I model the value of a currency in USD on the Gold value in USD, the coefficients and the std error in the coefficients can indicate the reaction behavior. If the std error in the coefficients is high, it would mean higher unpredictability on a currency's value when based on USD. Also, the error in the model for a given currency, when significantly different from other currencies can imply that currency is not directly linked to USD value. Hence, when we model a currency's exchange rate in USD on Gold value in USD, we are essentially explaining variation in a currency's value based on variation in US currency
-# I am not a practitioner in the area of economics or have a formal educaion in this area in college years (I graduated in Mechanical Engineering), in best case my self-taught understading is at basic level. With this basic understanding I have set out to explore this topic and tease out insights that are interesting or thought provoking, there are going to be some debatable implications or assumptions that I have used in my work, like there are factors like a country's GDP, fiscal deficit and political stability, to name a few, that affect the exchange rate and I am not using them in the analysis in this version. But, a joureny of a thousand miles begins with one step......
+# With my basic basic understanding of macro economics, I have set out to explore this topic and tease out insights that are interesting or thought provoking, there are going to be some debatable implications or assumptions that I have used in my work, like there are factors like a country's GDP, fiscal deficit and political stability, to name a few, that affect the exchange rate and I am not using them in the analysis in this version. But, a joureny of a thousand miles begins with one step......
 
 # Let's read in the libraries we will need:
 lapply(c("caret","dplyr", "e1071", "openxlsx"), require, character.only = T)
@@ -205,3 +205,9 @@ modelSummary %>%
   select(Currency, Coeff_Intercept_Estimate) %>%
   top_n(-5)
 # I think this list makes more sense, these are all amongst the strongest currencies in the world, although Euro is missing from this list as the RSquared is less than 40%
+
+
+# If I model (linear regression) value of currencies vs value of dollar, what would be the implication of differences in accuracies of different models? What would be the implication of different standard errors of the coefficients? Curiosity over these ponderings has triggered this analysis. Although, not an analysis with all the loose ends tied, hopefully there are enough insights to trigger more interesting questions.
+
+# Cheers
+# Ashwini
